@@ -1,0 +1,23 @@
+{
+  "test_mode": "Playwright set_content with local CSV injection; no external network",
+  "checks": [
+    "Browser loaded 27,468 CSV records through the test hook",
+    "All four SVG charts rendered",
+    "Regional summary table rendered with all seven regions",
+    "Year filter updates KPI values",
+    "Region filter narrows country options",
+    "Country selector updates selected-record summary",
+    "Filtered CSV download triggers with the expected filename",
+    "No JavaScript runtime errors",
+    "No browser console errors"
+  ],
+  "dashboard_ready_seconds": 1.187,
+  "dashboard_js_load_ms": 906,
+  "rows_loaded": 27468,
+  "csv_bytes": 1885113,
+  "html_bytes": 29327,
+  "petrol_kpi_all_years": "2.282",
+  "petrol_kpi_2025": "2.540",
+  "status": "PASS",
+  "notes": "This is a local rendering and interaction baseline. Dataset transfer uses a test hook, so these timings do not include HTTP/network latency and are not a Lighthouse score or production SLA. Run this test again after changes, then perform a hosted-page load test after GitHub Pages is enabled."
+}

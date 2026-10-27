@@ -1,166 +1,124 @@
-# Global Fuel Prices and Taxation Dashboard (2020–2026)
+# Global Fuel Prices and Taxation Analysis (2020-2026)
 
-An interactive Tableau analytics project exploring global petrol, diesel, and LPG prices alongside Brent crude oil prices and fuel taxation. The workbook brings together geographic views, time-series trends, regional tax comparisons, and country-level fuel comparisons to help users explore how fuel prices and tax rates vary across countries and over time.
+A data analytics project exploring petrol, diesel, LPG, Brent crude oil values and recorded fuel taxation across countries and regions. The repository includes a Tableau packaged workbook and an interactive, browser-based dashboard driven by the same CSV dataset.
 
-## Project Overview
+> **Data window:** 6 January 2020 to 6 April 2026. The dataset does not contain a complete calendar year of 2026.
 
-Fuel prices are influenced by multiple factors, including crude oil prices, taxation, regional conditions, income levels, and government subsidy policies. This project uses a global dataset to explore these relationships through visual analytics.
+## Project overview
 
-**Project type:** Data analytics and visualization  
-**Primary tool:** Tableau  
-**Dataset format:** CSV embedded in the packaged Tableau workbook (`.twbx`)  
-**Coverage:** 84 countries across 7 regions  
-**Date range in the dataset:** 6 January 2020 – 6 April 2026  
-**Records:** 27,468  
-**Fields:** 10
-
-> The dataset ends on 6 April 2026. “2020–2026” describes the available date range, not a complete calendar year of 2026.
-
-## Project Objectives
-
-- Compare petrol, diesel, and LPG prices across countries and regions.
-- Explore how fuel prices change over time.
-- Visualize geographic differences in petrol and diesel prices.
-- Compare average fuel-tax percentages across regions and countries.
-- Examine fuel-price patterns by income level and subsidy level where those categories are available.
-- Present key metrics and comparisons in a Tableau workbook that is easier to explore than a raw spreadsheet.
+The project combines a Tableau workbook for the original analytical views with a static web dashboard that can be hosted on GitHub Pages. The browser dashboard supports year, region, country and measure filters, updates KPI cards and charts, and can export filtered rows as CSV.
 
 ## Dataset
 
-The packaged workbook contains the source CSV under its `Data/Downloads/` folder. The dataset contains 27,468 records and no missing values in the ten fields checked in the included data.
+- **Records:** 27,468
+- **Countries:** 84
+- **Regions:** 7
+- **Distinct observation dates:** 327
+- **Fields:** 10
+- **Missing values:** none found in the supplied CSV during inspection
 
-| Column | Description |
+| Field | Description |
 |---|---|
-| `date` | Date associated with the observation |
+| `date` | Observation date |
 | `country` | Country name |
 | `region` | Geographic region |
-| `income_level` | Income category assigned in the dataset |
-| `subsidy_level` | Subsidy category assigned in the dataset |
+| `income_level` | Income classification supplied with the data |
+| `subsidy_level` | Subsidy classification supplied with the data |
 | `petrol_usd_liter` | Petrol price in USD per liter |
 | `diesel_usd_liter` | Diesel price in USD per liter |
 | `lpg_usd_liter` | LPG price in USD per liter |
-| `brent_crude_usd` | Brent crude oil price, recorded in USD per barrel |
-| `tax_percentage` | Fuel tax percentage recorded in the dataset |
+| `brent_crude_usd` | Brent crude value in USD per barrel |
+| `tax_percentage` | Recorded fuel tax percentage |
 
-### Dataset coverage
+## Dataset-level averages
 
-- **Countries:** 84
-- **Regions:** 7
-- **Start date:** 2020-01-06
-- **End date:** 2026-04-06
-- **Rows:** 27,468
-- **Columns:** 10
-- **Missing values:** None found in the included CSV during inspection
+These are arithmetic averages over all source rows; they are not live prices or official national estimates.
 
-## Tools and Technologies
-
-- **Tableau Desktop** — dashboards, charts, and story presentation
-- **CSV** — source data included inside the packaged workbook
-- **GitHub** — project versioning and sharing
-
-This repository describes the Tableau workbook and its embedded data. It does not claim a separate Flask web application, SQL pipeline, or automated performance-testing suite unless those components are added separately.
-
-## Visualizations in the Workbook
-
-The workbook contains 14 worksheets and 4 dashboards. The worksheets include:
-
-- **KPI cards:** average petrol price, diesel price, LPG price, and average tax rate
-- **Global Petrol Price Map:** geographic view of petrol prices
-- **Global Diesel Price Map:** geographic view of diesel prices
-- **Petrol Price Trends:** petrol price trends over time
-- **Diesel Price Trends:** diesel price trends over time
-- **LPG Price Trends:** LPG price trends over time
-- **Brent Crude Oil Price Trends (2020–2026):** Brent crude price trends over time
-- **Average Tax by Region:** regional tax comparison
-- **Highest Tax-Paying Nations:** country-level tax comparison
-- **Fuel Type Comparison:** comparison across fuel measures
-- **Top 3 Countries Fuel Comparison:** comparison of fuel measures for selected leading countries
-
-### Dashboards
-
-| Dashboard | Main focus |
-|---|---|
-| `1 - Global Overview` | High-level global overview and KPI indicators |
-| `02 - Fuel Trends` | Fuel-price trends and comparisons |
-| `03 - Tax & Country Analysis` | Taxation and country-level comparisons |
-| `Global Fuel Prices and Taxation — Story` | Story-style presentation that brings selected workbook views together |
-
-The workbook includes four dashboards. Exact appearance and interactivity depend on the Tableau version and how the workbook is opened.
-
-## Key Dataset Summary
-
-The following are descriptive averages calculated directly from the CSV embedded in the workbook. They summarize the included dataset; they are not forecasts or official policy conclusions.
-
-| Metric | Dataset average |
+| Metric | Average |
 |---|---:|
-| Petrol price | USD 2.282 per liter |
-| Diesel price | USD 2.134 per liter |
-| LPG price | USD 1.711 per liter |
-| Brent crude oil price | USD 107.982 per barrel |
-| Tax percentage | 26.774% |
+| Petrol | USD 2.282/liter |
+| Diesel | USD 2.134/liter |
+| LPG | USD 1.711/liter |
+| Brent crude | USD 107.982/barrel |
+| Recorded tax percentage | 26.774% |
 
-Country, date, and policy categories can affect comparisons. These overall averages should therefore be interpreted as dataset-level summaries rather than as values that apply to every country or every date.
+## Interactive dashboard preview
 
-## How to Open the Project
+![Interactive dashboard preview](assets/dashboard-overview.png)
 
-1. Download or clone this repository from GitHub.
-2. Locate the packaged Tableau workbook (`.twbx`) in the repository.
-3. Open the `.twbx` file using a compatible version of Tableau Desktop.
-4. If Tableau displays a compatibility or version notice, follow the prompts provided by Tableau.
-5. Explore the worksheets, dashboards, filters, and story using the workbook controls.
+The website is implemented with plain HTML, CSS and JavaScript; charts are drawn as SVG, without relying on a remote charting library. On GitHub Pages, it reads `global_fuel_prices_Dataset.csv` from the repository root. The browser dashboard is a **web-native interactive dashboard**, not an embedded Tableau Public view. The original Tableau workbook is available separately below.
 
-### Why the `.twbx` file is useful
+## Tableau workbook
 
-A Tableau Packaged Workbook (`.twbx`) can include workbook content and supporting local data files. This project’s uploaded `.twbx` contains the CSV source data, so the source CSV does not need to be separately reconnected for the packaged workbook to access that embedded copy.
+Open `Global_Fuel_Prices_Taxation_Dashboard.twbx` in a compatible version of Tableau Desktop. The uploaded workbook contains 14 distinct worksheet names, three regular dashboards and one Story with three saved Story points: Global Overview, Fuel Trends, and Tax & Country Analysis.
 
-## Repository Contents
+![Current Tableau Story preview](assets/tableau-story-preview.png)
 
-The main deliverable is the packaged Tableau workbook. A typical repository layout is:
+## Project files
 
-```text
-global-fuel-prices-tableau/
-├── README.md
-└── Global_Fuel_Prices_Taxation_Dashboard.twbx
-```
+| File or folder | Purpose |
+|---|---|
+| `index.html` | Interactive website/dashboard landing page |
+| `global_fuel_prices_Dataset.csv` | Source data used by the web dashboard |
+| `Global_Fuel_Prices_Taxation_Dashboard.twbx` | Packaged Tableau workbook |
+| `DASHBOARDPREVIEW.png` | Ready-to-open project preview image |
+| `PROJECT_REPORT.pdf` | Project overview, dataset, findings, charts and testing summary |
+| `PERFORMANCE_TESTING.md` | Local browser smoke-test method and results |
+| `performance-test-results.json` | Machine-readable results from the test run |
+| `sql/01_create_database_and_table.sql` | MySQL database/table setup |
+| `sql/02_validation_queries.sql` | SQL validation and summary queries |
+| `tests/test_dashboard.py` | Browser smoke test for the web dashboard |
+| `assets/dashboard-preview.png` | Browser viewport screenshot of the web dashboard |
+| `assets/dashboard-overview.png` | Upper dashboard area for documentation |
+| `assets/tableau-story-preview.png` | Screenshot of the current Tableau Story |
 
-Your actual GitHub repository may contain additional files. Update this section if you add SQL scripts, screenshots, documentation, or a demo video link.
+## How to open locally
 
-## Methodology and Interpretation
+1. Keep `index.html` and `global_fuel_prices_Dataset.csv` in the same folder.
+2. Open `index.html` through a local web server or host the repository with GitHub Pages. A server is recommended because browsers may block `fetch()` from a `file://` URL.
+3. In the repository root, you can start a simple local server with Python: `python -m http.server 8000`, then browse to `http://localhost:8000`.
+4. Use the Year, Region, Country and Primary Measure filters. The filtered-row count updates, and the Download filtered rows button exports the selected records.
 
-The project uses Tableau to summarize and compare the dataset through geographic maps, time-series charts, KPI views, and categorical comparisons. Filters available in individual worksheets can help narrow the analysis by region, country, or measure.
+## Publish the website using GitHub Pages
 
-Please keep the following points in mind:
+After uploading these files to the `main` branch:
 
-- The dataset’s categories and recorded values are treated as supplied; this README does not independently verify them against official national statistics.
-- Correlation or visual similarity between Brent crude prices, fuel prices, and tax rates does not by itself establish causation.
-- Differences between countries can reflect multiple factors that are not represented in the dataset.
-- The end date is 6 April 2026; there are no observations after that date in the included CSV.
+1. Open the repository on GitHub and choose **Settings**.
+2. Open **Pages** in the left sidebar.
+3. Under **Build and deployment**, select **Deploy from a branch**.
+4. Choose branch `main` and folder `/(root)`, then click **Save**.
+5. Wait for GitHub Pages to finish deployment. The expected URL is `https://architchhabda10-cpu.github.io/global-fuel-prices-taxation-analysis/`.
 
-## Limitations
+The URL will not work until Pages is enabled and deployment succeeds. Confirm the CSV and workbook are okay to publish publicly before enabling Pages.
 
-- The analysis is limited to the fields and date range present in the source dataset.
-- The dataset does not, by itself, explain every reason for cross-country price differences.
-- The workbook is a Tableau visualization project; a separate hosted web application is not included in this description.
-- Interactive online viewing depends on the publishing or sharing options available to the Tableau account and environment used.
+## MySQL validation
 
-## Possible Future Improvements
+The `sql` folder contains starter table setup and validation queries. Review the column types and database name for your installation before running. Import the CSV with MySQL Workbench's Table Data Import Wizard or a configured local-infile workflow. Never place a MySQL password in SQL scripts or commit it to GitHub.
 
-- Add documented SQL scripts for repeatable data validation and analysis.
-- Add screenshots of the completed dashboards to the repository.
-- Include a short demonstration-video link.
-- Document any data-cleaning or transformation steps if they are performed separately.
-- Add further analysis of relationships among crude oil prices, fuel prices, taxes, income categories, and subsidy categories.
-- Publish an accessible online version if the available Tableau licensing and sharing options support it.
+## Performance and testing
+
+A local Chromium smoke test was run against the web dashboard with the full dataset. It checked initial render, four charts, seven-region summary, year/region/country filters and the CSV download action. See [PERFORMANCE_TESTING.md](PERFORMANCE_TESTING.md) and [performance-test-results.json](performance-test-results.json). The recorded timings exclude real HTTP dataset transfer and must not be presented as a hosted Lighthouse score or production SLA. A hosted test should be completed after GitHub Pages deployment.
+
+## Key limitations
+
+- The dataset has not been independently reconciled with official statistics; verify its source and license before redistribution.
+- Cross-country differences and co-movement do not establish causal relationships.
+- Average values are computed across source observations, without weighting for population or consumption.
+- The web dashboard is static/client-side and does not use a backend API or live data feed.
+- A separate Tableau Public dashboard is not currently embedded; the `.twbx` workbook is available for download and local opening.
+
+## Future improvements
+
+- Publish and test a hosted Tableau Public view if permitted by the dataset license and Tableau account.
+- Capture final live-site Lighthouse/DevTools performance results.
+- Add an independently sourced data provenance note and appropriate license.
+- Extend the analysis with additional validated data sources and documented SQL analysis.
 
 ## Author
 
 **Archit Chhabda**  
 B.Tech Computer Science and Engineering
 
-## License and Data Attribution
+## Data attribution and license
 
-No license or original dataset source is specified in this README. Before redistributing the workbook or source data publicly, add the appropriate license and attribution details for the dataset and any third-party materials used.
-
----
-
-*This README describes the contents of the supplied packaged Tableau workbook and its embedded CSV. Update it whenever the project files, charts, or repository structure change.*
+The original source-data citation and redistribution license were not included in the supplied files. Add them here before redistributing data if you have the source details.
