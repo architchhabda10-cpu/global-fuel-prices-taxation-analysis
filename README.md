@@ -51,7 +51,7 @@ These are arithmetic averages over all source rows; they are not live prices or 
 
 ## Interactive dashboard preview
 
-![Interactive dashboard preview](assets/dashboard-overview.png)
+![Interactive Dashboard Preview](DASHBOARDPREVIEW.png)
 
 The website is implemented with plain HTML, CSS and JavaScript; charts are drawn as SVG, without relying on a remote charting library. On GitHub Pages, it reads `global_fuel_prices_Dataset.csv` from the repository root. The browser dashboard is a **web-native interactive dashboard**, not an embedded Tableau Public view. The original Tableau workbook is available separately below.
 
@@ -59,7 +59,7 @@ The website is implemented with plain HTML, CSS and JavaScript; charts are drawn
 
 Open `Global_Fuel_Prices_Taxation_Dashboard.twbx` in a compatible version of Tableau Desktop. The uploaded workbook contains 14 distinct worksheet names, three regular dashboards and one Story with three saved Story points: Global Overview, Fuel Trends, and Tax & Country Analysis.
 
-![Interactive Dashboard Preview](DASHBOARDPREVIEW.png)
+
 
 ## Project files
 
