@@ -59,7 +59,7 @@ The website is implemented with plain HTML, CSS and JavaScript; charts are drawn
 
 Open `Global_Fuel_Prices_Taxation_Dashboard.twbx` in a compatible version of Tableau Desktop. The uploaded workbook contains 14 distinct worksheet names, three regular dashboards and one Story with three saved Story points: Global Overview, Fuel Trends, and Tax & Country Analysis.
 
-![Current Tableau Story preview](assets/tableau-story-preview.png)
+![Interactive Dashboard Preview](DASHBOARDPREVIEW.png)
 
 ## Project files
 
