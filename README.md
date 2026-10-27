@@ -1,3 +1,10 @@
+# 🌐 Live Interactive Dashboard
+
+### [🚀 OPEN DASHBOARD](https://architchhabda10-cpu.github.io/global-fuel-prices-taxation-analysis/)
+
+[📂 View GitHub Repository](https://github.com/architchhabda10-cpu/global-fuel-prices-taxation-analysis)
+
+---
 # Global Fuel Prices and Taxation Analysis (2020-2026)
 
 A data analytics project exploring petrol, diesel, LPG, Brent crude oil values and recorded fuel taxation across countries and regions. The repository includes a Tableau packaged workbook and an interactive, browser-based dashboard driven by the same CSV dataset.
